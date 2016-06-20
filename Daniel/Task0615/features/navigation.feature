@@ -5,7 +5,7 @@ I want to open a browser of "roboform" page and fill its form.
 
 	Scenario: Fill Billing Address and Payment & Shipping Information form 
 		Given I open the borwser "http://www.roboform.com/filling-test-shopping-cart"
-			And I fill following data:
+			And I fill "Billing Address" with following data:
 			|First Name        | Daniel     |
 			|Last Name         | Jauregui   |
 			|Home Phone Number | 123456789  |
@@ -17,7 +17,7 @@ I want to open a browser of "roboform" page and fill its form.
 			|Company Name      | Jalasoft   |
 			|Company Phone     | 123456789  |
 			|Fax Number        | 123456789  |
-			And I fill folloqing Payment & Shipping Information:
+			And I fill "Payment & Shipping" with following data:
 			| Shipping Method              | Second Day Air              |
 			| Payment Method               | Visa (Preferred)            |
 			| Name on Credit Card or Check | VISA                        |

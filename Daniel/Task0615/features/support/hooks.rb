@@ -1,0 +1,25 @@
+Before do
+	@shoppingCartDic={
+		'First Name' => 'input', 
+		'Last Name' => 'input', 
+		'Home Phone Number' => 'input', 
+		'Address 1' => 'input',
+		'Address 2' => 'input',
+		'City' => 'input',
+		'State' => 'select',
+		'Postal Code' => 'input',
+		'Company Name' => 'input',
+		'Company Phone' => 'input',
+		'Fax Number' => 'input',
+		'Shipping Method' => 'select',
+		'Payment Method' => 'select',
+		'Name on Credit Card or Check' => 'input',
+		'Credit Card Number' => 'input',
+		'Expiration Date' => 'select',
+		'Enter your Email Address' => 'input',
+		'Account Type' => 'select',
+		'Choose A Password' => 'input',
+		'Verify Your Password' => 'input',
+		'Hint (Optional)' => 'input',
+		'Newsletter' => 'check'}
+end

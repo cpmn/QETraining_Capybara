@@ -6,10 +6,28 @@ I want to open a browser of "roboform" page and fill its form.
 	Scenario: Fill Billing Address and Payment & Shipping Information form 
 		Given I open the borwser "http://www.roboform.com/filling-test-shopping-cart"
 			And I fill following data:
-			|labels| t02frstname | t04lastname    | t20homephon_ac    | t10address1   | t13adr_city       | s14adrstate | t16addr_zip   | t10address2 | t05_company | t21workphon_ac   | t21workphon_ex | t22faxphone_ac      |
-			|x| Daniel| Jauregui | 70700001  | Wiracocha  | Cochabamba | NY    | 0000  | arawi    | Jalasoft   | 44133465 | 123 | 44133465 |
+			|First Name        | Daniel     |
+			|Last Name         | Jauregui   |
+			|Home Phone Number | 707721799  |
+			|Address 1         | Wiracocha  |
+			|Address 2         | Arawi      |
+			|City              | Cochabamba |
+			|State             | NEW YORK   |
+			|Postal Code       | 0000       |
+			|Company Name      | Jalasoft   |
+			|Company Phone     | 4529182    |
+			|Fax Number        | 4629182    |
 			And I fill folloqing Payment & Shipping Information:
-			|Shipping | Paymet | NameCredict | NumCredit      | Month  | Year | Email                       | AccountType | Pass     | RPass    | NewLetter | 
-			| 1       |      2 | VISA        | 22222222222222 | 7      | 2016 | daniel.jauregui@outlook.com | 3           | Password | Password |  1        |
+			| Shipping Method              | Second Day Air              |
+			| Payment Method               | Visa (Preferred)            |
+			| Name on Credit Card or Check | VISA                        |
+			| Credit Card Number           | 22222222222222              |
+			| Expiration Date              | 07/2016                     |
+			| Enter your Email Address     | daniel.jauregui@outlook.com |
+			| Account Type                 | Corporation                 |
+			| Choose A Password            | Password                    |
+			| Verify Your Password         | Password                    |
+			| Hint (Optional)              | Hint Password               |
+			| Newsletter                   | check                       |
 		When I will click in "Reset" button
 		Then The all field will be in initial state

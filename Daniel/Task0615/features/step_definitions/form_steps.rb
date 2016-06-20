@@ -3,22 +3,18 @@ def execute_action(input)
 	table.each_pair do |label,value|
 		if @shoppingCartDic[label] == 'input'
 			name = page.find('td',:text => label)
-			index = 1
-			name.all(:xpath,'(.//following-sibling::input[1])').each do |item|
-				name.find(:xpath,"(.//following-sibling::input[1])[#{index}]").set value	
-				index += 1
+			name.all(:xpath,'(.//following-sibling::input[1])').each_with_index do |item,index|
+				name.find(:xpath,"(.//following-sibling::input[1])[#{index+1}]").set value	
 			end
 		elsif @shoppingCartDic[label] == 'select'
 			name = page.find('td',:text => label)
-			index = 1
 			date_text = value.split("/")
 			value = date_text[0]
-			name.all(:xpath,'(.//following-sibling::select)').each do |item|
-				name.find(:xpath,"(.//following-sibling::select[1])[#{index}]").select(value)
+			name.all(:xpath,'(.//following-sibling::select)').each_with_index do |item,index|
+				name.find(:xpath,"(.//following-sibling::select[1])[#{index+1}]").select(value)
 				if date_text.length > 1
 					value = date_text[1]
 				end
-				index += 1
 			end
 		elsif @shoppingCartDic[label] == 'check'
 			name = page.find('td',:text => label)
@@ -47,25 +43,19 @@ end
 Then(/^The all field will be in initial state$/) do
 
 	# Verify Imputs
-	index = 1
-	page.all(:xpath,'(//form[1])[2]//following-sibling::input[@type="text" or @type="password"]').each do |item|
-		expect(page.find(:xpath,"((//form[1])[2]//following-sibling::input[@type='text' or @type='password'])[#{index}]").value()).to be_empty
-		index += 1
+	page.all(:xpath,'(//form[1])[2]//following-sibling::input[@type="text" or @type="password"]').each_with_index do |item,index|
+		expect(page.find(:xpath,"((//form[1])[2]//following-sibling::input[@type='text' or @type='password'])[#{index+1}]").value()).to be_empty
 	end
 
 	# Verify Select
-	index = 1
-	page.all(:xpath,'(//form[1])[2]//following-sibling::select').each do |item|
-		node = page.find(:xpath,"((//form[1])[2]//following-sibling::select[1])[#{index}]") #.value()
+	page.all(:xpath,'(//form[1])[2]//following-sibling::select').each_with_index do |item,index|
+		node = page.find(:xpath,"((//form[1])[2]//following-sibling::select[1])[#{index+1}]") #.value()
 		expect(node.value).to eq("").or eq("1").or eq("0").or eq("2011")
-		index += 1
 	end
 
 	# Verify Check
-	index = 1
-	page.all(:xpath,'(//form[1])[2]//following-sibling::input[@type="checkbox"]').each do |item|
-		expect(page.find(:xpath,"((//form[1])[2]//following-sibling::input[@type='checkbox'])[#{index}]")).not_to be_checked
-		index += 1
+	page.all(:xpath,'(//form[1])[2]//following-sibling::input[@type="checkbox"]').each_with_index do |item,index|
+		expect(page.find(:xpath,"((//form[1])[2]//following-sibling::input[@type='checkbox'])[#{index+1}]")).not_to be_checked
 	end
 
 end

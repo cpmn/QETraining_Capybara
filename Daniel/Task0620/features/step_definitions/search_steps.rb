@@ -7,11 +7,10 @@ When(/^I search "([^"]*)"$/) do |word|
 end
 
 When(/^click in "([^"]*)" button$/) do |button|
-	#page.click_on("btnK")
-	#page.click_button button
-	page.find(:xpath,"//form//following-sibling::button[@value='Search']").click
+	#page.click_on(button)
+	page.find(:xpath,'//*[@id="sblsbb"]/button/span').click
 end
 
-Then(/^I should see the result "([^"]*)"$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^I should see the result "([^"]*)"$/) do |title|
+	expect(page.find(:xpath,"//h3/a[text()='#{title}']").text()).to eq(title)
 end

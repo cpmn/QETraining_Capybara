@@ -9,6 +9,6 @@ end
 Then(/^following images are displayed:$/) do |images|
   table = images.rows
 	table.each do |label|
-		expect(page.has_xpath?(:xpath,"//h5[text()='#{label}']//following-sibling::div/p/a/img")).to be(true)
+		expect(page.has_xpath?("//h5[text()='#{label[0]}']//following-sibling::*/descendant::img")).to be(true)
 	end
 end

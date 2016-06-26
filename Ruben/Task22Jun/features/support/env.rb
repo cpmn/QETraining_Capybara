@@ -23,7 +23,7 @@ AfterConfiguration do
 		Capybara.default_max_wait_time = default_wait
 		# Capybara.javascript_driver = :selenium
 		Capybara.register_driver :selenium do |app|
-				Capybara::Selenium::Driver.new(app,:browser => :ie)
+				Capybara::Selenium::Driver.new(app,:browser => :chrome)
 		end
 
 	end
